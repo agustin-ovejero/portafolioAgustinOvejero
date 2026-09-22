@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Metadatos de la página -->
+    <title>Agustin Ovejero | QA/QC & Full Stack Developer</title>
+    <meta name="description" content="Portafolio personal de Agustin Ovejero, Desarrollador QA/QC y Full Stack Developer. Especializado en calidad de software y desarrollo web moderno." />
+    <meta property="og:title" content="Agustin Ovejero | QA/QC & Full Stack Developer" />
+    <meta property="og:description" content="Portafolio profesional: proyectos de pruebas automatizadas QA/QC y desarrollo Full Stack moderno." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0d9488" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* ==========================================================================
+         VARIABLES CSS Y SISTEMA DE DISEÑO
+         ========================================================================== */
+      :root {
+        /* Paleta Neutra Clara */
+        --bg-body: #fafbfe;
+        --bg-surface: #ffffff;
+        --bg-surface-alt: #f1f5f9;
+        --border-color: #e2e8f0;
+        --border-color-hover: #0d9488;
+        
+        /* Tipografía */
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #64748b;
+        
+        /* Color de Acento: Verde Azulado (Teal) */
+        --accent: #0d9488;
+        --accent-hover: #0f766e;
+        --accent-light: rgba(13, 148, 136, 0.08);
+        --accent-border: rgba(13, 148, 136, 0.22);
+        
+        /* Badge Secundario (Full Stack / QA) */
+        --badge-fs-bg: rgba(37, 99, 235, 0.08);
+        --badge-fs-text: #2563eb;
+        --badge-fs-border: rgba(37, 99, 235, 0.2);
+        
+        --badge-qa-bg: rgba(13, 148, 136, 0.09);
+        --badge-qa-text: #0d9488;
+        --badge-qa-border: rgba(13, 148, 136, 0.25);
+
+        /* Sombras suaves */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+        --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+        --shadow-hover: 0 12px 24px -4px rgba(13, 148, 136, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+
+        /* Bordes redondeados */
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 14px;
+        --radius-pill: 9999px;
+
+        /* Transición de tema */
+        --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* Tema Oscuro */
+      [data-theme="dark"] {
+        --bg-body: #090d16;
+        --bg-surface: #111827;
+        --bg-surface-alt: #1a2234;
+        --border-color: #212d45;
+        --border-color-hover: #2dd4bf;
+        
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        
+        --accent: #2dd4bf;
+        --accent-hover: #14b8a6;
+        --accent-light: rgba(45, 212, 191, 0.12);
+        --accent-border: rgba(45, 212, 191, 0.28);
+        
+        --badge-fs-bg: rgba(96, 165, 250, 0.12);
+        --badge-fs-text: #93c5fd;
+        --badge-fs-border: rgba(96, 165, 250, 0.25);
+        
+        --badge-qa-bg: rgba(45, 212, 191, 0.12);
+        --badge-qa-text: #2dd4bf;
+        --badge-qa-border: rgba(45, 212, 191, 0.28);
+
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+        --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 14px 28px -4px rgba(0, 0, 0, 0.6), 0 0 18px 0 rgba(45, 212, 191, 0.14);
+      }
+
+      /* ==========================================================================
+         REINICIO Y BASE
+         ========================================================================== */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background-color: var(--bg-body);
+        color: var(--text-primary);
+        transition: var(--transition-theme);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+      }
+
+      /* ==========================================================================
+         CONTENEDOR GLOBAL
+         ========================================================================== */
+      .container {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      /* ==========================================================================
+         HEADER FIJO Y DELGADO
+         ========================================================================== */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: rgba(250, 251, 254, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        transition: var(--transition-theme);
+        height: 64px;
+      }
+
+      [data-theme="dark"] .header {
+        background-color: rgba(9, 13, 22, 0.85);
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      .brand-avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-md);
+        background: var(--accent-light);
+        color: var(--accent);
+        border: 1px solid var(--accent-border);
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      .nav-links {
+        display: none;
+        align-items: center;
+        gap: 28px;
+        list-style: none;
+      }
+
+      .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        position: relative;
+        padding: 4px 0;
+      }
+
+      .nav-link:hover {
+        color: var(--accent);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* Botón Toggle de Modo Claro / Oscuro */
+      .theme-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-md);
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        transition: var(--transition-theme), transform 0.2s ease;
+      }
+
+      .theme-toggle-btn:hover {
+        color: var(--accent);
+        border-color: var(--border-color-hover);
+        transform: translateY(-1px);
+      }
+
+      .theme-toggle-btn svg {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      .icon-sun {
+        display: none;
+      }
+      .icon-moon {
+        display: block;
+      }
+
+      [data-theme="dark"] .icon-sun {
+        display: block;
+      }
+      [data-theme="dark"] .icon-moon {
+        display: none;
+      }
+
+      /* ==========================================================================
+         SECCIÓN HERO
+         ========================================================================== */
+      .hero-section {
+        padding-top: 130px;
+        padding-bottom: 70px;
+      }
+
+      .hero-content {
+        max-width: 780px;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: var(--radius-pill);
+        background-color: var(--accent-light);
+        border: 1px solid var(--accent-border);
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        white-space: nowrap;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        position: relative;
+      }
+
+      .status-dot::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background-color: var(--accent);
+        opacity: 0.4;
+        animation: pulse 2s infinite ease-out;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.8); opacity: 0; }
+        100% { transform: scale(1); opacity: 0; }
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 18px;
+        letter-spacing: -0.01em;
+      }
+
+      .hero-description {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin-bottom: 32px;
+        max-width: 680px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: var(--radius-md);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .btn svg {
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+      }
+
+      .btn-primary {
+        background-color: var(--accent);
+        color: #ffffff;
+      }
+
+      [data-theme="dark"] .btn-primary {
+        color: #090d16;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--accent-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+      }
+
+      .btn-secondary {
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--border-color-hover);
+        color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* ==========================================================================
+         SECCIONES COMUNES
+         ========================================================================== */
+      .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .section-header {
+        margin-bottom: 32px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 1.65rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      /* ==========================================================================
+         SECCIÓN SOBRE MÍ
+         ========================================================================== */
+      .about-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 28px 24px;
+        box-shadow: var(--shadow-card);
+        transition: var(--transition-theme);
+      }
+
+      .about-text {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 22px;
+      }
+
+      .about-highlights {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .highlight-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius-md);
+        background-color: var(--accent-light);
+        color: var(--accent);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .highlight-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .highlight-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+
+      .highlight-desc {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      /* ==========================================================================
+         SECCIÓN HABILIDADES (BADGES COMPACTOS)
+         ========================================================================== */
+      .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .skills-group-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .skills-group-title svg {
+        width: 16px;
+        height: 16px;
+        color: var(--accent);
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .skill-badge:hover {
+        border-color: var(--border-color-hover);
+        color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .skill-badge svg {
+        width: 15px;
+        height: 15px;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      /* ==========================================================================
+         SECCIÓN PROYECTOS (GRID DE TARJETAS)
+         ========================================================================== */
+      .projects-header-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .filter-tabs {
+        display: inline-flex;
+        background-color: var(--bg-surface-alt);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 4px;
+        gap: 4px;
+        width: fit-content;
+      }
+
+      .filter-btn {
+        padding: 6px 14px;
+        border-radius: var(--radius-sm);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .filter-btn:hover {
+        color: var(--text-primary);
+      }
+
+      .filter-btn.active {
+        background-color: var(--bg-surface);
+        color: var(--accent);
+        font-weight: 600;
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Grid de proyectos responsive */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      /* Tarjeta Individual de Proyecto */
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow-card);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.25s ease,
+                    box-shadow 0.25s ease;
+        position: relative;
+      }
+
+      /* Efecto Hover Solicitado: Elevación + Cambio Sutil de Borde */
+      .project-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--border-color-hover);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .project-top {
+        margin-bottom: 20px;
+      }
+
+      .project-meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .project-type-badge {
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 3px 9px;
+        border-radius: var(--radius-pill);
+        white-space: nowrap;
+      }
+
+      .type-qa {
+        background-color: var(--badge-qa-bg);
+        color: var(--badge-qa-text);
+        border: 1px solid var(--badge-qa-border);
+      }
+
+      .type-fs {
+        background-color: var(--badge-fs-bg);
+        color: var(--badge-fs-text);
+        border: 1px solid var(--badge-fs-border);
+      }
+
+      .project-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1.35;
+        letter-spacing: -0.01em;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .project-desc {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .project-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tech-tag {
+        font-size: 0.72rem;
+        font-weight: 500;
+        padding: 3px 8px;
+        border-radius: var(--radius-sm);
+        background-color: var(--bg-surface-alt);
+        color: var(--text-muted);
+        border: 1px solid var(--border-color);
+        white-space: nowrap;
+      }
+
+      .project-links {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        padding: 5px 8px;
+        border-radius: var(--radius-sm);
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .project-link:hover {
+        color: var(--accent);
+        background-color: var(--accent-light);
+      }
+
+      .project-link svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* ==========================================================================
+         SECCIÓN CONTACTO / FOOTER
+         ========================================================================== */
+      .contact-banner {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 36px 24px;
+        text-align: center;
+        box-shadow: var(--shadow-card);
+        margin-bottom: 60px;
+        transition: var(--transition-theme);
+      }
+
+      .contact-banner-title {
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .contact-banner-desc {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        max-width: 520px;
+        margin: 0 auto 24px auto;
+      }
+
+      .footer {
+        border-top: 1px solid var(--border-color);
+        padding: 28px 0;
+        transition: var(--transition-theme);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .footer-copy {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .footer-socials {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .footer-social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: var(--radius-md);
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        transition: all 0.2s ease;
+      }
+
+      .footer-social-link:hover {
+        color: var(--accent);
+        border-color: var(--border-color-hover);
+        transform: translateY(-2px);
+      }
+
+      .footer-social-link svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* ==========================================================================
+         ANIMACIONES DISCRETAS DE SCROLL
+         ========================================================================== */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        will-change: opacity, transform;
+      }
+
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Toast de confirmación de email copiado */
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background-color: var(--text-primary);
+        color: var(--bg-surface);
+        padding: 10px 18px;
+        border-radius: var(--radius-md);
+        font-size: 0.85rem;
+        font-weight: 500;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 200;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ==========================================================================
+         RESPONSIVIDAD: BREAKPOINTS (640px, 768px, 1024px)
+         ========================================================================== */
+      /* Breakpoint 640px (Small Tablets) */
+      @media (min-width: 640px) {
+        .hero-title {
+          font-size: 2.75rem;
+        }
+
+        .about-highlights {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .projects-header-wrapper {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+
+      /* Breakpoint 768px (Tablets) */
+      @media (min-width: 768px) {
+        .nav-links {
+          display: flex;
+        }
+
+        .hero-section {
+          padding-top: 150px;
+          padding-bottom: 80px;
+        }
+
+        .section {
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-content {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      /* Breakpoint 1024px (Desktops) */
+      @media (min-width: 1024px) {
+        .hero-title {
+          font-size: 3.25rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.35rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .about-card {
+          padding: 36px 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- =======================================================================
+         HEADER FIJO
+         ======================================================================= -->
+    <header id="header" class="header">
+      <div class="container header-content">
+        <!-- Logo / Marca Personal -->
+        <a href="#hero" class="brand-logo" id="brand-logo-link" aria-label="Ir al inicio">
+          <span class="brand-avatar">AO</span>
+          <span>Agustin Ovejero</span>
+        </a>
+
+        <!-- Enlaces de navegación rápida -->
+        <nav aria-label="Navegación principal">
+          <ul class="nav-links" id="nav-menu">
+            <li><a href="#sobre-mi" class="nav-link" id="nav-about">Sobre mí</a></li>
+            <li><a href="#habilidades" class="nav-link" id="nav-skills">Habilidades</a></li>
+            <li><a href="#proyectos" class="nav-link" id="nav-projects">Proyectos</a></li>
+            <li><a href="#contacto" class="nav-link" id="nav-contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <!-- Toggle de Modo Oscuro / Claro -->
+        <div class="header-actions">
+          <button
+            id="theme-toggle-btn"
+            class="theme-toggle-btn"
+            type="button"
+            aria-label="Cambiar a tema oscuro o claro"
+            title="Alternar modo de color"
+          >
+            <!-- Ícono Sol (Visible en modo oscuro) -->
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Ícono Luna (Visible en modo claro) -->
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- =======================================================================
+           HERO SECTION
+           ======================================================================= -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-content fade-in-section">
+            <div class="status-pill" id="hero-status">
+              <span class="status-dot"></span>
+              Disponible para proyectos & colaboraciones
+            </div>
+
+            <h1 class="hero-title" id="hero-name">Agustin Ovejero</h1>
+            <p class="hero-subtitle" id="hero-role">QA/QC & Full Stack</p>
+            
+            <p class="hero-description" id="hero-pitch">
+              Especializado en asegurar la máxima calidad del software y construir aplicaciones web modernas, robustas y escalables de extremo a extremo.
+            </p>
+
+            <div class="hero-actions" id="hero-actions-container">
+              <!-- Enlace a GitHub -->
+              <a
+                href="https://github.com/agustin-ovejero"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+                id="hero-github-btn"
+                aria-label="Perfil de GitHub de Agustin Ovejero"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                GitHub
+              </a>
+
+              <!-- Enlace a LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/agustin-ovejero-2a0439344/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+                id="hero-linkedin-btn"
+                aria-label="Perfil de LinkedIn de Agustin Ovejero"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                LinkedIn
+              </a>
+
+              <!-- Enlace a Email -->
+              <a
+                href="mailto:ovejeroagustin2@gmail.com"
+                class="btn btn-secondary"
+                id="hero-email-btn"
+                aria-label="Enviar correo electrónico a Agustin Ovejero"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Email
+              </a>
+
+              <!-- Botón Ver Proyectos -->
+              <a href="#proyectos" class="btn btn-primary" id="hero-view-projects-btn">
+                Ver Proyectos
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <polyline points="19 12 12 19 5 12"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECCIÓN SOBRE MÍ (2-3 LÍNEAS MÁXIMO)
+           ======================================================================= -->
+      <section id="sobre-mi" class="section">
+        <div class="container">
+          <div class="section-header fade-in-section">
+            <span class="section-tag">Perfil Profesional</span>
+            <h2 class="section-title">Sobre mí</h2>
+          </div>
+
+          <div class="about-card fade-in-section" id="about-card">
+            <!-- 2-3 líneas sintetizando el doble rol según requerimiento -->
+            <p class="about-text" id="about-summary">
+              Como <strong>Desarrollador QA/QC y Full Stack</strong>, fusiono la precisión del aseguramiento de calidad con la visión técnica de la arquitectura web. Construyo interfaces fluidas y servicios backend escalables, respaldados por suites de testing automatizado que blindan cada funcionalidad antes de producción.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item" id="highlight-qa">
+                <div class="highlight-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <polyline points="9 12 11 14 15 10"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="highlight-title">Calidad & QA/QC</h3>
+                  <p class="highlight-desc">Automatización de pruebas E2E y regresión. Estrategias de testing integradas en el ciclo de desarrollo para prevenir bugs antes de producción.</p>
+
+                </div>
+              </div>
+
+              <div class="highlight-item" id="highlight-fs">
+                <div class="highlight-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="highlight-title">Desarrollo Full Stack</h3>
+                  <p class="highlight-desc">Construcción de interfaces fluidas y servicios backend escalables. Arquitectura de APIs REST seguras y modelado de datos eficiente.</p>
+                </div>
+              </div>
+
+              <div class="highlight-item" id="highlight-ci">
+                <div class="highlight-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="highlight-title">Flujo Continuo & Calidad</h3>
+                  <p class="highlight-desc">Implementación de pipelines CI/CD con testing automatizado integrado, garantizando despliegues seguros y código libre de regresiones.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECCIÓN HABILIDADES (BADGES COMPACTOS)
+           ======================================================================= -->
+      <section id="habilidades" class="section">
+        <div class="container">
+          <div class="section-header fade-in-section">
+            <span class="section-tag">Herramientas & Tecnologías</span>
+            <h2 class="section-title">Habilidades</h2>
+          </div>
+
+          <div class="skills-container fade-in-section" id="skills-container">
+            <!-- Bloque QA/QC -->
+            <div id="skills-group-qa">
+              <h3 class="skills-group-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                QA, QC & Testing Automatizado
+              </h3>
+              <div class="skills-grid" id="skills-qa-list">
+                <div class="skill-badge" id="skill-postman">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  Postman & Newman API
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  CI/CD & GitHub Actions
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  GitHub Projects
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  Agile
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  Scrum
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  ISTQB
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  Black box
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  White box
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  EP
+                </div>
+                <div class="skill-badge" id="skill-cicd">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                  BVA
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque Full Stack -->
+            <div id="skills-group-fs">
+              <h3 class="skills-group-title">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                Desarrollo Full Stack
+              </h3>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  Git
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  Python
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  FastApi
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  MySQL
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  HTML
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  CSS
+                </div>
+                <div class="skill-badge" id="skill-git">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  Javascritp
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECCIÓN PROYECTOS (GRID DE TARJETAS - ELEMENTO CLAVE)
+           ======================================================================= -->
+      <section id="proyectos" class="section">
+        <div class="container">
+          <div class="projects-header-wrapper fade-in-section">
+            <div class="section-header" style="margin-bottom: 0;">
+              <span class="section-tag">Portafolio</span>
+              <h2 class="section-title">Proyectos Destacados</h2>
+            </div>
+
+            <!-- Filtros de categoría para alternar proyectos con suavidad -->
+            <div class="filter-tabs" role="tablist" aria-label="Filtro de proyectos">
+              <button class="filter-btn active" data-filter="all" id="filter-all" role="tab" aria-selected="true">
+                Todos
+              </button>
+              <button class="filter-btn" data-filter="qa" id="filter-qa" role="tab" aria-selected="false">
+                QA/QC              </button>
+              <button class="filter-btn" data-filter="fullstack" id="filter-fs" role="tab" aria-selected="false">
+                Full Stack
+              </button>
+              <button class="filter-btn" data-filter="frontend" id="filter-fs" role="tab" aria-selected="false">
+                Frontend
+              </button>
+              <button class="filter-btn" data-filter="backend" id="filter-fs" role="tab" aria-selected="false">
+                Backend
+              </button>
+            </div>
+          </div>
+
+          <!-- Grid Responsive: 1 columna móvil, 2 en tablet (768px), 3 en desktop (1024px) -->
+          <div class="projects-grid" id="projects-grid">
+
+            <!-- Proyecto 1: QA/QC -->
+            <article class="project-card fade-in-section" data-category="qa" id="project-card-1">
+              <div class="project-top">
+                <div class="project-meta-row">
+                  <span class="project-type-badge type-qa">QA / QC </span>
+                  <span class="project-type-badge type-fs">Frontend</span>
+                </div>
+                <h3 class="project-title">Luminova</h3>
+                <p class="project-desc">
+                  Software ERP de ensamblado de luminarias con productos importados.
+                </p>
+              </div>
+
+              <div class="project-bottom">
+                <div class="tech-tags">
+                  <span class="tech-tag">Django</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">React</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://luminovaerp.pythonanywhere.com/login/" class="project-link" id="p1-demo-link" aria-label="Ver Demo de Framework con Selenium">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Demo
+                  </a>
+                  <a href="https://github.com/dgimenezdeveloper/refactor_luminova" target="_blank" rel="noopener noreferrer" class="project-link" id="p1-repo-link" aria-label="Repositorio de Framework con Selenium">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Proyecto 2: Full Stack -->
+            <article class="project-card fade-in-section" data-category="fullstack" id="project-card-2">
+              <div class="project-top">
+                <div class="project-meta-row">
+                  <span class="project-type-badge type-fs">Full Stack</span>
+                  <span class="project-type-badge type-qa">QA/QC</span>
+                </div>
+                <h3 class="project-title">Allmart</h3>
+                <p class="project-desc">
+                  Plataforma integral de comercio y ERP para retail con matriz de variantes y SKUs, alertas de margen comercial frente a proveedores, optimización de medios en Cloudflare R2 y catálogos en PDF con Puppeteer.
+                </p>
+              </div>
+
+              <div class="project-bottom">
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">Express</span>
+                  <span class="tech-tag">PostgreSQL</span>
+                  <span class="tech-tag">Tailwind</span>
+                  <span class="tech-tag">TypeScript </span>
+                </div>
+                <div class="project-links">
+                  <a href="https://allmartbazar.com.ar/" class="project-link" id="p2-demo-link" aria-label="Ver Demo de App de tareas">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Demo
+                  </a>
+                  <a href="https://github.com/FolkodeGroup/allmart" target="_blank" rel="noopener noreferrer" class="project-link" id="p2-repo-link" aria-label="Repositorio de App de tareas">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           BANNER DE CONTACTO
+           ======================================================================= -->
+      <section id="contacto" class="section" style="padding-top: 20px;">
+        <div class="container">
+          <div class="contact-banner fade-in-section" id="contact-banner">
+            <h2 class="contact-banner-title">¿Conversamos sobre tu próximo proyecto?</h2>
+            <p class="contact-banner-desc">
+              Disponible para puestos y colaboraciones de QA Automation, Testing de Calidad y Desarrollo Full Stack.
+            </p>
+            <div class="hero-actions" style="justify-content: center;">
+              <a href="mailto:ovejeroagustin2@gmail.com" class="btn btn-primary" id="contact-email-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                ovejeroagustin2@gmail.com
+              </a>
+              <button type="button" class="btn btn-secondary" id="copy-email-btn" title="Copiar correo al portapapeles">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copiar Email
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =======================================================================
+         FOOTER MINIMALISTA
+         ======================================================================= -->
+    <footer class="footer" id="footer">
+      <div class="container footer-content">
+        <p class="footer-copy">
+          &copy; 2026 <strong>Agustin Ovejero</strong>. QA/QC &amp; Full Stack Developer.
+        </p>
+        <div class="footer-socials">
+          <a
+            href="https://github.com/agustin-ovejero"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-link"
+            id="footer-github-link"
+            aria-label="GitHub de Agustin Ovejero"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/agustin-ovejero-2a0439344/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-social-link"
+            id="footer-linkedin-link"
+            aria-label="LinkedIn de Agustin Ovejero"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a
+            href="mailto:ovejeroagustin2@gmail.com"
+            class="footer-social-link"
+            id="footer-email-link"
+            aria-label="Email de Agustin Ovejero"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast emergente de confirmación -->
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <span>Correo copiado al portapapeles</span>
+    </div>
+
+    <!-- =======================================================================
+         JAVASCRIPT EMBEBIDO
+         - Gestión de modo oscuro / claro con localStorage y prefers-color-scheme
+         - Animaciones de aparición en scroll (IntersectionObserver)
+         - Filtro reactivo de proyectos (Todos / QA / Full Stack)
+         - Microinteracción para copiar correo
+         ======================================================================= -->
+    <script>
+      (function() {
+        'use strict';
+
+        /* ---------------------------------------------------------------------
+           1. GESTIÓN DE MODO OSCURO / CLARO
+           --------------------------------------------------------------------- */
+        const STORAGE_KEY = 'portfolio-theme';
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const rootElement = document.documentElement;
+
+        // Determinar tema inicial: 1) localStorage, 2) preferencia del sistema operativo
+        function getPreferredTheme() {
+          const storedTheme = localStorage.getItem(STORAGE_KEY);
+          if (storedTheme === 'dark' || storedTheme === 'light') {
+            return storedTheme;
+          }
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          return prefersDark ? 'dark' : 'light';
+        }
+
+        // Aplicar tema en el DOM
+        function applyTheme(theme) {
+          rootElement.setAttribute('data-theme', theme);
+          // Actualizar atributo aria del botón
+          if (themeToggleBtn) {
+            themeToggleBtn.setAttribute(
+              'aria-label',
+              theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
+            );
+          }
+        }
+
+        // Inicializar tema actual
+        const currentTheme = getPreferredTheme();
+        applyTheme(currentTheme);
+
+        // Evento de clic en botón toggle
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener('click', function() {
+            const activeTheme = rootElement.getAttribute('data-theme') || 'light';
+            const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem(STORAGE_KEY, newTheme);
+          });
+        }
+
+        // Escuchar cambios de preferencia en el sistema en vivo (si el usuario no guardó preferencia manual)
+        const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        colorSchemeQuery.addEventListener('change', function(e) {
+          const hasManualPreference = localStorage.getItem(STORAGE_KEY);
+          if (!hasManualPreference) {
+            applyTheme(e.matches ? 'dark' : 'light');
+          }
+        });
+
+        /* ---------------------------------------------------------------------
+           2. ANIMACIONES DISCRETAS AL HACER SCROLL (IntersectionObserver)
+           --------------------------------------------------------------------- */
+        const animatedElements = document.querySelectorAll('.fade-in-section');
+
+        if ('IntersectionObserver' in window) {
+          const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -40px 0px',
+            threshold: 0.1
+          };
+
+          const scrollObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Dejar de observar una vez que ya apareció
+                observer.unobserve(entry.target);
+              }
+            });
+          }, observerOptions);
+
+          animatedElements.forEach(function(el) {
+            scrollObserver.observe(el);
+          });
+        } else {
+          // Fallback para navegadores antiguos
+          animatedElements.forEach(function(el) {
+            el.classList.add('is-visible');
+          });
+        }
+
+        /* ---------------------------------------------------------------------
+           3. FILTRADO REACTIVO DE PROYECTOS (Todos / QA / Full Stack)
+           --------------------------------------------------------------------- */
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            const filterValue = this.getAttribute('data-filter');
+
+            // Actualizar botones de pestaña
+            filterButtons.forEach(function(b) {
+              b.classList.remove('active');
+              b.setAttribute('aria-selected', 'false');
+            });
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            // Mostrar u ocultar tarjetas con transición suave
+            projectCards.forEach(function(card) {
+              const cardCategory = card.getAttribute('data-category');
+              if (filterValue === 'all' || cardCategory === filterValue) {
+                card.style.display = 'flex';
+                setTimeout(function() {
+                  card.style.opacity = '1';
+                  card.style.transform = 'translateY(0)';
+                }, 10);
+              } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(function() {
+                  card.style.display = 'none';
+                }, 200);
+              }
+            });
+          });
+        });
+
+        /* ---------------------------------------------------------------------
+           4. COPIAR EMAIL AL PORTAPAPELES
+           --------------------------------------------------------------------- */
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        const toast = document.getElementById('toast');
+        let toastTimeout;
+
+        function showToast(message) {
+          if (!toast) return;
+          if (message) {
+            const span = toast.querySelector('span');
+            if (span) span.textContent = message;
+          }
+          toast.classList.add('show');
+          clearTimeout(toastTimeout);
+          toastTimeout = setTimeout(function() {
+            toast.classList.remove('show');
+          }, 3000);
+        }
+
+        if (copyEmailBtn) {
+          copyEmailBtn.addEventListener('click', function() {
+            const email = 'ovejeroagustin2@gmail.com';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(email).then(function() {
+                showToast('¡Correo copiado al portapapeles!');
+              }).catch(function() {
+                showToast('Correo: ' + email);
+              });
+            } else {
+              // Fallback
+              const tempInput = document.createElement('input');
+              tempInput.value = email;
+              document.body.appendChild(tempInput);
+              tempInput.select();
+              document.execCommand('copy');
+              document.body.removeChild(tempInput);
+              showToast('¡Correo copiado al portapapeles!');
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
