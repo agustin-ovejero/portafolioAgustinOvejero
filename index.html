@@ -222,6 +222,30 @@
         gap: 12px;
       }
 
+      .menu-toggle-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-md);
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        transition: var(--transition-theme), transform 0.2s ease;
+      }
+
+      .menu-toggle-btn:hover {
+        color: var(--accent);
+        border-color: var(--border-color-hover);
+        transform: translateY(-1px);
+      }
+
+      .menu-toggle-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
       /* Botón Toggle de Modo Claro / Oscuro */
       .theme-toggle-btn {
         display: inline-flex;
@@ -271,7 +295,50 @@
       }
 
       .hero-content {
-        max-width: 780px;
+        max-width: 980px;
+      }
+
+      .hero-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 32px;
+        flex-wrap: nowrap;
+      }
+
+      .hero-text {
+        flex: 1 1 0;
+        min-width: 0;
+      }
+
+      .hero-profile-wrapper {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid rgba(45, 212, 191, 0.9);
+        background-color: var(--bg-surface);
+        box-shadow:
+          0 0 0 6px rgba(45, 212, 191, 0.12),
+          0 20px 40px rgba(15, 23, 42, 0.18);
+        position: relative;
+      }
+
+      .hero-profile-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border-radius: 50%;
+        border: 1px solid rgba(45, 212, 191, 0.28);
+        pointer-events: none;
+      }
+
+      .hero-profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .status-pill {
@@ -556,16 +623,27 @@
       }
 
       .filter-tabs {
-        display: inline-flex;
+        display: flex;
+        align-items: center;
         background-color: var(--bg-surface-alt);
         border: 1px solid var(--border-color);
         border-radius: var(--radius-md);
-        padding: 4px;
+        padding: 4px 6px;
         gap: 4px;
-        width: fit-content;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .filter-tabs::-webkit-scrollbar {
+        display: none;
       }
 
       .filter-btn {
+        flex: 0 0 auto;
         padding: 6px 14px;
         border-radius: var(--radius-sm);
         font-size: 0.82rem;
@@ -580,9 +658,9 @@
       }
 
       .filter-btn.active {
-        background-color: var(--bg-surface);
-        color: var(--accent);
-        font-weight: 600;
+        background-color: var(--accent);
+        color: #0f172a;
+        font-weight: 700;
         box-shadow: var(--shadow-sm);
       }
 
@@ -623,7 +701,8 @@
       .project-meta-row {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
         margin-bottom: 12px;
       }
 
@@ -649,6 +728,18 @@
         border: 1px solid var(--badge-fs-border);
       }
 
+      .type-frontend {
+        background-color: rgba(168, 85, 247, 0.08);
+        color: #9333ea;
+        border: 1px solid rgba(168, 85, 247, 0.2);
+      }
+
+      .type-backend {
+        background-color: rgba(14, 116, 144, 0.08);
+        color: #0f766e;
+        border: 1px solid rgba(14, 116, 144, 0.2);
+      }
+
       .project-title {
         font-size: 1.15rem;
         font-weight: 600;
@@ -663,6 +754,7 @@
         color: var(--text-secondary);
         line-height: 1.5;
         display: -webkit-box;
+        line-clamp: 2;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
@@ -841,10 +933,156 @@
       }
 
       /* ==========================================================================
-         RESPONSIVIDAD: BREAKPOINTS (640px, 768px, 1024px)
+         RESPONSIVIDAD: BREAKPOINTS (480px, 768px, 1024px)
          ========================================================================== */
-      /* Breakpoint 640px (Small Tablets) */
+      @media (max-width: 479px) {
+        .container {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .filter-tabs {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+
+        .section {
+          padding-top: 42px;
+          padding-bottom: 42px;
+        }
+
+        .hero-section {
+          padding-top: 104px;
+          padding-bottom: 42px;
+        }
+
+        .hero-header {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .hero-profile-wrapper {
+          order: 1;
+          width: 200px;
+          height: 200px;
+          margin: 0 auto;
+        }
+
+        .hero-text {
+          order: 2;
+          width: 100%;
+        }
+
+        .status-pill {
+          display: inline-flex;
+          margin-left: auto;
+          margin-right: auto;
+          font-size: 0.74rem;
+          padding: 6px 12px;
+        }
+
+        .hero-title {
+          font-size: clamp(2rem, 8vw, 2.6rem);
+        }
+
+        .hero-subtitle {
+          font-size: 1.05rem;
+          margin-bottom: 14px;
+        }
+
+        .hero-description {
+          font-size: 0.95rem;
+          margin-bottom: 20px;
+        }
+
+        .hero-actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 10px;
+          justify-content: stretch;
+        }
+
+        .btn {
+          justify-content: center;
+          width: 100%;
+          min-height: 44px;
+          padding: 10px 12px;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .filter-tabs {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          width: 100%;
+        }
+
+        .header {
+          height: 64px;
+        }
+
+        .header-content {
+          position: relative;
+        }
+
+        .brand-logo {
+          font-size: 0.95rem;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: calc(100% + 8px);
+          left: 0;
+          right: 0;
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+          padding: 16px;
+          background-color: var(--bg-surface);
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-hover);
+          z-index: 120;
+        }
+
+        .nav-links.is-open {
+          display: flex;
+        }
+
+        .nav-link {
+          display: block;
+          padding: 10px 12px;
+          border-radius: var(--radius-sm);
+          font-size: 0.92rem;
+        }
+
+        .nav-link:hover {
+          background-color: var(--accent-light);
+        }
+
+        .header-actions {
+          gap: 8px;
+        }
+
+        .menu-toggle-btn {
+          display: inline-flex;
+        }
+      }
+
       @media (min-width: 640px) {
+        .filter-tabs {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          gap: 8px;
+          overflow: visible;
+        }
+
         .hero-title {
           font-size: 2.75rem;
         }
@@ -864,6 +1102,11 @@
       @media (min-width: 768px) {
         .nav-links {
           display: flex;
+          gap: 16px;
+        }
+
+        .menu-toggle-btn {
+          display: none;
         }
 
         .hero-section {
@@ -888,6 +1131,13 @@
 
       /* Breakpoint 1024px (Desktops) */
       @media (min-width: 1024px) {
+        .filter-tabs {
+          display: inline-flex;
+          width: fit-content;
+          flex-wrap: nowrap;
+          overflow: visible;
+        }
+
         .hero-title {
           font-size: 3.25rem;
         }
@@ -931,6 +1181,22 @@
         <!-- Toggle de Modo Oscuro / Claro -->
         <div class="header-actions">
           <button
+            id="menu-toggle-btn"
+            class="menu-toggle-btn"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            title="Abrir menú"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <button
             id="theme-toggle-btn"
             class="theme-toggle-btn"
             type="button"
@@ -965,73 +1231,85 @@
       <section id="hero" class="hero-section">
         <div class="container">
           <div class="hero-content fade-in-section">
-            <div class="status-pill" id="hero-status">
-              <span class="status-dot"></span>
-              Disponible para proyectos & colaboraciones
-            </div>
+            <div class="hero-header">
+              <div class="hero-profile-wrapper" aria-label="Foto de perfil de Agustin Ovejero">
+                <img
+                  class="hero-profile-image"
+                  src="https://via.placeholder.com/300"
+                  alt="Agustin Ovejero"
+                />
+              </div>
 
-            <h1 class="hero-title" id="hero-name">Agustin Ovejero</h1>
-            <p class="hero-subtitle" id="hero-role">QA/QC & Full Stack</p>
-            
-            <p class="hero-description" id="hero-pitch">
-              Especializado en asegurar la máxima calidad del software y construir aplicaciones web modernas, robustas y escalables de extremo a extremo.
-            </p>
+              <div class="hero-text">
+                <div class="status-pill" id="hero-status">
+                  <span class="status-dot"></span>
+                  Disponible para proyectos &amp; colaboraciones
+                </div>
 
-            <div class="hero-actions" id="hero-actions-container">
-              <!-- Enlace a GitHub -->
-              <a
-                href="https://github.com/agustin-ovejero"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-                id="hero-github-btn"
-                aria-label="Perfil de GitHub de Agustin Ovejero"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-                GitHub
-              </a>
+                <h1 class="hero-title" id="hero-name">Agustin Ovejero</h1>
+                <p class="hero-subtitle" id="hero-role">QA/QC &amp; Full Stack</p>
 
-              <!-- Enlace a LinkedIn -->
-              <a
-                href="https://www.linkedin.com/in/agustin-ovejero-2a0439344/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-secondary"
-                id="hero-linkedin-btn"
-                aria-label="Perfil de LinkedIn de Agustin Ovejero"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-                LinkedIn
-              </a>
+                <p class="hero-description" id="hero-pitch">
+                  Especializado en asegurar la máxima calidad del software y construir aplicaciones web modernas, robustas y escalables de extremo a extremo.
+                </p>
 
-              <!-- Enlace a Email -->
-              <a
-                href="mailto:ovejeroagustin2@gmail.com"
-                class="btn btn-secondary"
-                id="hero-email-btn"
-                aria-label="Enviar correo electrónico a Agustin Ovejero"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                Email
-              </a>
+                <div class="hero-actions" id="hero-actions-container">
+                  <!-- Enlace a GitHub -->
+                  <a
+                    href="https://github.com/agustin-ovejero"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                    id="hero-github-btn"
+                    aria-label="Perfil de GitHub de Agustin Ovejero"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHub
+                  </a>
 
-              <!-- Botón Ver Proyectos -->
-              <a href="#proyectos" class="btn btn-primary" id="hero-view-projects-btn">
-                Ver Proyectos
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <polyline points="19 12 12 19 5 12"></polyline>
-                </svg>
-              </a>
+                  <!-- Enlace a LinkedIn -->
+                  <a
+                    href="https://www.linkedin.com/in/agustin-ovejero-2a0439344/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-secondary"
+                    id="hero-linkedin-btn"
+                    aria-label="Perfil de LinkedIn de Agustin Ovejero"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                  </a>
+
+                  <!-- Enlace a Email -->
+                  <a
+                    href="mailto:ovejeroagustin2@gmail.com"
+                    class="btn btn-secondary"
+                    id="hero-email-btn"
+                    aria-label="Enviar correo electrónico a Agustin Ovejero"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                  </a>
+
+                  <!-- Botón Ver Proyectos -->
+                  <a href="#proyectos" class="btn btn-primary" id="hero-view-projects-btn">
+                    Ver Proyectos
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1224,14 +1502,15 @@
                 Todos
               </button>
               <button class="filter-btn" data-filter="qa" id="filter-qa" role="tab" aria-selected="false">
-                QA/QC              </button>
-              <button class="filter-btn" data-filter="fullstack" id="filter-fs" role="tab" aria-selected="false">
+                QA/QC
+              </button>
+              <button class="filter-btn" data-filter="fullstack" id="filter-fullstack" role="tab" aria-selected="false">
                 Full Stack
               </button>
-              <button class="filter-btn" data-filter="frontend" id="filter-fs" role="tab" aria-selected="false">
+              <button class="filter-btn" data-filter="frontend" id="filter-frontend" role="tab" aria-selected="false">
                 Frontend
               </button>
-              <button class="filter-btn" data-filter="backend" id="filter-fs" role="tab" aria-selected="false">
+              <button class="filter-btn" data-filter="backend" id="filter-backend" role="tab" aria-selected="false">
                 Backend
               </button>
             </div>
@@ -1241,11 +1520,11 @@
           <div class="projects-grid" id="projects-grid">
 
             <!-- Proyecto 1: QA/QC -->
-            <article class="project-card fade-in-section" data-category="qa" id="project-card-1">
+            <article class="project-card fade-in-section" data-category="qa frontend" id="project-card-1">
               <div class="project-top">
                 <div class="project-meta-row">
-                  <span class="project-type-badge type-qa">QA / QC </span>
-                  <span class="project-type-badge type-fs">Frontend</span>
+                  <span class="project-type-badge type-qa">QA / QC</span>
+                  <span class="project-type-badge type-frontend">Frontend</span>
                 </div>
                 <h3 class="project-title">Luminova</h3>
                 <p class="project-desc">
@@ -1280,11 +1559,13 @@
             </article>
 
             <!-- Proyecto 2: Full Stack -->
-            <article class="project-card fade-in-section" data-category="fullstack" id="project-card-2">
+            <article class="project-card fade-in-section" data-category="fullstack qa frontend backend" id="project-card-2">
               <div class="project-top">
                 <div class="project-meta-row">
                   <span class="project-type-badge type-fs">Full Stack</span>
                   <span class="project-type-badge type-qa">QA/QC</span>
+                  <span class="project-type-badge type-frontend">Frontend</span>
+                  <span class="project-type-badge type-backend">Backend</span>
                 </div>
                 <h3 class="project-title">Allmart</h3>
                 <p class="project-desc">
@@ -1299,7 +1580,7 @@
                   <span class="tech-tag">Express</span>
                   <span class="tech-tag">PostgreSQL</span>
                   <span class="tech-tag">Tailwind</span>
-                  <span class="tech-tag">TypeScript </span>
+                  <span class="tech-tag">TypeScript</span>
                 </div>
                 <div class="project-links">
                   <a href="https://allmartbazar.com.ar/" class="project-link" id="p2-demo-link" aria-label="Ver Demo de App de tareas">
@@ -1474,7 +1755,41 @@
         });
 
         /* ---------------------------------------------------------------------
-           2. ANIMACIONES DISCRETAS AL HACER SCROLL (IntersectionObserver)
+           2. MENÚ HAMBURGUESA EN MOBILE
+           --------------------------------------------------------------------- */
+        const menuToggleBtn = document.getElementById('menu-toggle-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (menuToggleBtn && navMenu) {
+          menuToggleBtn.addEventListener('click', function() {
+            const isOpen = navMenu.classList.toggle('is-open');
+            menuToggleBtn.setAttribute('aria-expanded', String(isOpen));
+            menuToggleBtn.setAttribute(
+              'aria-label',
+              isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'
+            );
+          });
+
+          navMenu.querySelectorAll('.nav-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+              navMenu.classList.remove('is-open');
+              menuToggleBtn.setAttribute('aria-expanded', 'false');
+              menuToggleBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+            });
+          });
+
+          document.addEventListener('click', function(event) {
+            const target = event.target;
+            if (!navMenu.contains(target) && !menuToggleBtn.contains(target)) {
+              navMenu.classList.remove('is-open');
+              menuToggleBtn.setAttribute('aria-expanded', 'false');
+              menuToggleBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+            }
+          });
+        }
+
+        /* ---------------------------------------------------------------------
+           3. ANIMACIONES DISCRETAS AL HACER SCROLL (IntersectionObserver)
            --------------------------------------------------------------------- */
         const animatedElements = document.querySelectorAll('.fade-in-section');
 
@@ -1506,7 +1821,7 @@
         }
 
         /* ---------------------------------------------------------------------
-           3. FILTRADO REACTIVO DE PROYECTOS (Todos / QA / Full Stack)
+           4. FILTRADO REACTIVO DE PROYECTOS (Todos / QA / Full Stack / Frontend / Backend)
            --------------------------------------------------------------------- */
         const filterButtons = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
@@ -1515,7 +1830,6 @@
           btn.addEventListener('click', function() {
             const filterValue = this.getAttribute('data-filter');
 
-            // Actualizar botones de pestaña
             filterButtons.forEach(function(b) {
               b.classList.remove('active');
               b.setAttribute('aria-selected', 'false');
@@ -1523,28 +1837,27 @@
             this.classList.add('active');
             this.setAttribute('aria-selected', 'true');
 
-            // Mostrar u ocultar tarjetas con transición suave
             projectCards.forEach(function(card) {
-              const cardCategory = card.getAttribute('data-category');
-              if (filterValue === 'all' || cardCategory === filterValue) {
+              const cardCategories = (card.getAttribute('data-category') || '')
+                .split(/\s+/)
+                .filter(Boolean);
+              const shouldShow = filterValue === 'all' || cardCategories.includes(filterValue);
+
+              if (shouldShow) {
                 card.style.display = 'flex';
-                setTimeout(function() {
-                  card.style.opacity = '1';
-                  card.style.transform = 'translateY(0)';
-                }, 10);
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
               } else {
+                card.style.display = 'none';
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(10px)';
-                setTimeout(function() {
-                  card.style.display = 'none';
-                }, 200);
               }
             });
           });
         });
 
         /* ---------------------------------------------------------------------
-           4. COPIAR EMAIL AL PORTAPAPELES
+           5. COPIAR EMAIL AL PORTAPAPELES
            --------------------------------------------------------------------- */
         const copyEmailBtn = document.getElementById('copy-email-btn');
         const toast = document.getElementById('toast');
