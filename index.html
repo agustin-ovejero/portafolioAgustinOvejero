@@ -424,6 +424,35 @@
         white-space: nowrap;
       }
 
+      .contact-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .contact-email-btn {
+        max-width: min(100%, 470px);
+        width: 100%;
+        min-width: 0;
+        flex: 1 1 auto;
+        overflow: hidden;
+      }
+
+      .contact-email-text {
+        display: block;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1 1 auto;
+      }
+
+      .copy-email-btn {
+        flex-shrink: 0;
+      }
+
       .btn svg {
         width: 17px;
         height: 17px;
@@ -941,6 +970,18 @@
           padding-right: 16px;
         }
 
+        .contact-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .contact-email-btn,
+        .copy-email-btn {
+          width: 100%;
+          max-width: 100%;
+          justify-content: center;
+        }
+
         .filter-tabs {
           padding-left: 8px;
           padding-right: 8px;
@@ -1014,6 +1055,11 @@
       }
 
       @media (max-width: 767px) {
+        .contact-email-btn {
+          width: 100%;
+          max-width: 100%;
+        }
+
         .filter-tabs {
           display: flex;
           flex-wrap: nowrap;
@@ -1235,7 +1281,7 @@
               <div class="hero-profile-wrapper" aria-label="Foto de perfil de Agustin Ovejero">
                 <img
                   class="hero-profile-image"
-                  src="https://via.placeholder.com/300"
+                  src="src/assets/foto-web.png"
                   alt="Agustin Ovejero"
                 />
               </div>
@@ -1523,7 +1569,7 @@
             <article class="project-card fade-in-section" data-category="qa frontend" id="project-card-1">
               <div class="project-top">
                 <div class="project-meta-row">
-                  <span class="project-type-badge type-qa">QA / QC</span>
+                  <span class="project-type-badge type-qa">QA/QC</span>
                   <span class="project-type-badge type-frontend">Frontend</span>
                 </div>
                 <h3 class="project-title">Luminova</h3>
@@ -1562,10 +1608,8 @@
             <article class="project-card fade-in-section" data-category="fullstack qa frontend backend" id="project-card-2">
               <div class="project-top">
                 <div class="project-meta-row">
-                  <span class="project-type-badge type-fs">Full Stack</span>
                   <span class="project-type-badge type-qa">QA/QC</span>
-                  <span class="project-type-badge type-frontend">Frontend</span>
-                  <span class="project-type-badge type-backend">Backend</span>
+                  <span class="project-type-badge type-frontend">Frontend</span>                
                 </div>
                 <h3 class="project-title">Allmart</h3>
                 <p class="project-desc">
@@ -1614,15 +1658,15 @@
             <p class="contact-banner-desc">
               Disponible para puestos y colaboraciones de QA Automation, Testing de Calidad y Desarrollo Full Stack.
             </p>
-            <div class="hero-actions" style="justify-content: center;">
-              <a href="mailto:ovejeroagustin2@gmail.com" class="btn btn-primary" id="contact-email-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="contact-actions" aria-label="Acciones de contacto">
+              <a href="mailto:ovejeroagustin2@gmail.com" class="btn btn-primary contact-email-btn" id="contact-email-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                ovejeroagustin2@gmail.com
+                <span class="contact-email-text">ovejeroagustin2@gmail.com</span>
               </a>
-              <button type="button" class="btn btn-secondary" id="copy-email-btn" title="Copiar correo al portapapeles">
+              <button type="button" class="btn btn-secondary copy-email-btn" id="copy-email-btn" title="Copiar correo al portapapeles">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
